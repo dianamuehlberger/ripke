@@ -1,0 +1,32 @@
+CODEBUCH (für den Pretest schauen wir uns alle Kriterien nur für Dezember 2019 an),
+"Im Codebuch definieren Sie, wie und nach welchen Kriterien erfasst werden.",
+,
+Wert,Kommentar
+edgelist,Grundregel: Die Edgelist darf pro Spalte immer nur einen Wert enthalten. Bis auf die ID idealerweise numerisch codiert (als Zahl).
+from,definiert den Sender in unserem Netzwerk. Entspricht ID in der Nodelist.
+to ,definiert den Empfänger in unserem Netzwerk. Entspricht ID in der Nodelist.
+weight,"Ausprägung der Kantenstärke (Beziehungsstärke), definiert nach vorgegeben Skalen (1 = einmaliger Kontakt, 2 = 2-10 Kontake, 3 = 10 und mehr (oder Freundschaft?), 4 = Frau und Familie"
+relationship,"definiert die Art der Beziehung bei multiplexen Netzwerken mit verschiedenen Beziehungsarten (1 = business, 2 = private)"
+time,"definiert einen Zeitraum, in dem die Beziehung zwischen zwei Knoten stattgefunden hat oder beobachtet wurde (1 = 2016, 2 = 2017, 3 = 2018, 4= 2019)"
+,
+nodelist,Grundregel: die IDs der Nodelist müssen mit den IDs der Edgelist komplett übereinstimmen. Ausprägungen der Attribute in der Regel numerisch definieren.
+id,"eindeutige Identifikation jedes einzelnen Knotens (vertex), der erfasst wird.  "
+name,Name oder Bezeichnung des Knotens. 
+sex,"dichotome Ausprägung: male oder female (1 = male, 2 = female)"
+profession,"definiert als Berufsbild des Akteurs (1 = fotograf, 2 = model, 3 = künstler/musiker, 4 = sportler, 5 = prominente personen)"
+,
+,
+,
+99,definiert fehlende Werte
+,
+Bearbeitungshinweise,
+"Achten Sie bitte auf die Kommentare in den Spalten. Diese erklären genauer, welche Daten erfasst werden. ",
+"Sie sehen die Kommentare, wenn Sie auf die entsprechende Spalte gehen. ",
+"Skizzieren Sie zunächst Ihr Netzwerk bzw. die Daten, die für Sie relevant sind. ",
+Welche Informationen wollen Sie erheben? Wie müssen diese erfasst sein?,
+"Legen Sie bitte im Codebuch möglichst genau fest, wie die Daten erhoben werden (Codebuch)",
+"Bitte verwenden Sie keine Sonderzeichen in der Erfassung, dazu gehören Satzzeichen, Umlaute, etc.",
+"Verpflichten Sie alle Teammitglieder darauf, das Codebuch zwingend einzuhalten. ",
+Wer seine Daten nicht sauber erstellt muss diese nachbereinigen.,
+"Dokumentieren Sie jeden Schritt Ihrer Datenerfassung mit, um dies zu rekonstruieren.",
+Nutzen Sie das Skript zur Datenbereinigung auf dem letzten Reiter!,
