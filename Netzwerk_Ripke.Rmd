@@ -1,0 +1,671 @@
+---
+title: "Ripke_Skript"
+author: "Friederike Kunz, Diana Mühlberger, Angelina Neuwirth, Franziska Schmock, Leah Striegel"
+date: "5/18/2020"
+output: html_document
+---
+(Zuletzt geändert am: Sonntag 21. Juni 2020)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(max.print = 999999)
+```
+
+# Zusammenfassung (Abstract)
+Der Forschungsbericht untersucht die zusammenhängenden Netzwerke rund um die Fotografen Paul Ripke, Chris Schwarz, Lina Tesch und Andre Josselin auf Basis der Forschungsfrage " XXX ". 
+
+die Beziehungsnetzwerke eines Semesters an der Hochschule. Die unterschiedlichen Beziehungsarten zeigen, dass sich Cliquen und Cluster entlang der Homophilie von Studierenden entwickelt. 
+Keywords: Netzwerkanalyse, Teilnetzwerke, Cliquen, Homophilie
+
+
+# Einleitung
+Paul Ripke ist ein deutscher Fotograf und multimedialer Content-Creator. Lange Zeit betrieb er ein Werbefotografie-Studio in Hamburg. Doch durch einige Zufälle und, wie er es nennt, eine große Portion Glück, wurde er nicht nur ein Starfotograf sondern auch selbst zu einer prominenten Persönlichkeit.
+					
+Sein Jetset-Lifestyle begann 2012, als er anfing für den Rapper Marteria und Bands wie Die Toten Hosen zu fotografieren. Eine eigene Castingshow im gleichen Jahr, in der er nach einem Praktikanten suchte, war seine erste richtige Erfahrung vor der Kamera. Durch seine Tätigkeit als TV-Show-Fotograf bei Circus Halligalli vernetzte er sich weiterhin mit vielen bekannten Persönlichkeiten, fotografierte 2014 die Deutsche Nationalmannschaft in Rio und produzierte danach drei Jahre lang Content für die Formel 1 und Nico Rosberg. Auch Musikvideos für Lena Meyer-Landrut oder Sido zieren sein Portfolio. Heute nimmt er zusammen mit Joko Winterscheidt regelmäßig einen Podcast auf und hat sein eigenes Mode-Label.
+					
+Uns interessiert besonders, ob es Schlüsselfiguren in dem Netzwerk um Paul Ripke gibt, welche seine Karriere begünstigten und wie sich das Netzwerk über die Jahre 2016 bis 2019 entwickelte. Auch finden wir das Netzwerk an Fotograf*innen interessant, das er über die Jahre hervorgebracht hat, indem er sie unterstützte und über seine Kanäle auf sie aufmerksam machte. Dazu zählen seine damalige Praktikantin Lina Tesch, der Lifestyle-Fotograf Andre Josselin sowie der “Mini-Paul” Chris Schwarz. Wir untersuchen in unserer Netzwerkanalyse außerdem, über welche Akteure die Fotografen miteinander verbunden sind und wie hoch die Dichte der jeweiligen Netzwerke ist. Beispielsweise untersuchen wir auch welche Akteure mit welchen Marken zusammengearbeitet haben oder mit welchen Musikern Paul Ripke zusammengearbeitet hat.
+
+
+# Vorarbeiten und vergleichbare Studien
+## Forschungsstand
+Es gibt noch keine Netzwerkanalyse um die Person Paul Ripke oder ein vergleichbares Projekt, das sich mit anderen deutschen Fotografen beschäftigt. Es ist jedoch ein Grundinteresse von Fotografen und Medienschaffenden vorhanden, die sich durch Interviews und Podcasts mit dem Erfolg von Paul Ripke auseinandersetzen. Paul Ripke kann also als Marke verstanden werden, der hauptsächlich unter Gleichgesinnten in der Branche eine hohe Bedeutung zukommt. 
+
+### Vergleichbare Studien
+https://link.springer.com/chapter/10.1007/978-3-658-20854-7_11
+https://link.springer.com/article/10.1007/s00608-017-0503-z
+https://link.springer.com/chapter/10.1007/978-3-658-16289-4_5
+
+## Arbeitshypothesen
+Wir gehen von folgenden Hypothesen aus:
+a) Paul Ripke hat die meisten Verbindungen in dem Netzwerk
+b) Paul Ripke vernetzt sich hauptsächlich mit Personen, die ebenfalls sehr erfolgreich sind
+
+Ansonsten hat die Analyse einen überwiegend explorativen Charakter.
+
+
+# Datenerhebung: Zugang, Bereinigung und Codebuch
+
+## Zugang
+Die Instagram-Kanäle der vier Fotografen wurden von 2016 bis 2019 untersucht (Stand November 2019 bis Juni 2020) und durch deren Websites, (Zeitungs-)Artikel, Interviews und weitere Belege für Zusammenarbeiten ergänzt:
+ 
+@paulripke https://www.instagram.com/paulripke/?hl=de, https://paulripke.com/photo/
+@josselin https://www.instagram.com/josselin/?hl=de, https://www.josselin.de/
+@linatesch https://www.instagram.com/linatesch/?hl=de, https://www.linatesch.com/
+@chrisschwarz https://www.instagram.com/chrisschwarz/?hl=de, https://www.chrisschwarz.me/
+Instagram-TV: “Daily Ripky” 
+Podcast “Alle Wege führen nach Ruhm”: https://awfnr.de/
+Casting-Show und (Musik-)Videos: https://vimeo.com/paulripke
+Hotel Matze Podcast: https://mitvergnuegen.com/hotelmatze/podcast-hotel-matze-paul-ripke/
+Video-Interviews mit Paul Ripke
+Fotobände: 2013, 2014, One Night In Rio
+
+## Bereinigung des Datensatzes
+Um eine aufwendige Bereinigung des Datensatzes zu vermeiden, achten wir von Anfang an sehr auf das korrekte Anlegen von Edge- und Nodelist. Dennoch ließen sich Leichtsinnsfehler nicht vermeiden. Zu Beginn verglichen wir die Kürzel in der Nodelist, um auszuschließen, dass ein Kürzel für zwei Knoten verwendet wurde. Beim erstmaligen Eingeben des Gesamtnetzwerkes erreichte uns trotz sorgfältiger Eingaben ein Fehlercode. In der Edgelist war eine Verbindung hinterlegt, die zu eine Knoten führte, der in der Nodelist nicht definiert war. Wir glichen die Edge sowie die Nodelist miteinander ab und haben die fehlerhafte Verbindung gefunden. Danach funktionierte die Visualisierung.
+Der Datensatz ist unter [Github](https://github.com/dianamuehlberger/ripke) verfügbar.
+
+## Codebuch
+Das [Codebuch](https://raw.githubusercontent.com/dianamuehlberger/ripke/master/codebuck_ripke.csv) beschreibt die Variablen und Relationen des Netzwerks und ist ebenfalls auf Github hinterlegt.
+
+# Analyse und Interpretation
+
+## Das Gesamtnetzwerk
+Das Gesamtnetzwerk umfasst 140 Knoten und 224 Beziehungen (siehe igraph-Objekt). Es ist ungerichtet und nicht gewichtet.
+
+### Einlesen des Datensatzes und Erstellung eines iGraph-Objekts
+Die Edge- und Nodelist werden per Github-Link geladen. 
+
+```{r include=FALSE}
+# lädt benötigte Bibliotheken
+library(igraph)
+library(igraphdata)
+library(ggplot2)
+library(ggraph)
+library(graphlayouts)
+library(dplyr)
+library(knitr)
+library(remedy)
+
+# liest die Edgelist als "el" ein
+el <- read.csv("edgelist.csv", header=T, as.is=T, sep = ",")
+
+# liest die Nodelist mit den Namen ein
+nodes <- read.csv("nodelist.csv", header=T, as.is=T, sep = ",")
+
+# Zwischenschritt verbindet die Edge- und Nodelist zu einer Matrix
+ripke_matrix <- as.matrix(el)
+
+# generiert ein igraph-Objekt "ripke" aus der Matrix, das ungerichtet ist (directed = FALSE)
+ripke <- graph_from_data_frame(d=ripke_matrix, vertices=nodes, directed=FALSE)
+
+# ruft unser neues igraph-Objekt auf
+ripke
+```
+
+```{r}
+# Parameter zu Beschreibung des Netzwerks
+
+## ist das Netzwerk bereits vereinfacht?
+is.simple(ripke)
+
+## besteht das Netzwerk aus Komponenten?
+## wenn ja, wie vielen?
+is.connected(ripke)
+components(ripke)
+
+## Dichte des Netzwerks
+edge_density(ripke, loops=FALSE)
+
+## Umfang des Netzwerks
+diameter(ripke)
+
+## Pfaddistanzen (Distance)
+farthest_vertices(ripke)
+```
+Das Gesamtnetzwerk besteht aus 140 Knoten. Die Dichte im Netzwerk beträgt 2,3 Prozent von allen möglichen Verbindungen. Die maximale Pfaddistanz beträgt 9 Schritte.
+
+Wir plotten das Gesamtnetzwerk "Ripke", um uns einen Überblick zu verschaffen. 
+
+```{r Gesamtnetzwerk erstellen, fig.height=9, fig.width=9}
+# Wir plotten das Gesamtnetzwerk um uns einen Überblick zu verschaffen. Dabei geben wir an wie groß die Knoten sein sollen, wie groß die Beschreibungen sein sollen sowie wie weit die Beschreibungen vom Knotenmittelpunkt entfernt sein sollen. Die Knotenfarbe ist hellblau.
+
+plot(ripke, layout = layout_with_kk, vertex.size=3, vertex.label.cex= 0.8, vertex.label.dist = 0.5, vertex.color = "light blue")
+
+```
+
+```{r}
+# Wir lassen uns ausgeben, wie groß die größte Clique in unserem Netzwerk ist. Das heißt: Wie groß ist die größte Gruppe an Knoten in der jeder Knoten jeden anderen Knoten kennt.
+
+largest_cliques(ripke)
+```
+
+Die größten Cliquen im Netzwerk bestehen aus nur drei Knoten. Wir vermuten, dass dieser geringe Wert damit zusammenhängt, dass viele der Knoten nur mit einem der Fotografen zusammengearbeitet haben und so nur wenige Cliquen mit dem dregree = 1 entstehen können. 
+
+### Marken und Personen
+Für die Übersicht färben wir das Gesamtnetzwerk in Rot = Marken und Blau = Personen ein.
+
+```{r fig.height=9, fig.width=9}
+# Wir plotten das Gesamtnetzwerk mit dem Unterschied, dass wir nach Marken und Personen unterscheiden. Dafür färben wir die Marken (type = 1) rot ein. 
+
+type1 <- ripke
+V(type1)[V(type1)$type == 1]$color <- "light blue" 
+V(type1)[V(type1)$type == 2]$color <- "red"
+
+plot(type1,
+    layout = layout_with_kk,
+    vertex.size=3,
+    vertex.label.cex= 0.8,
+    vertex.label.dist = 0.5)
+```
+
+Hier fällt auf, dass das Netzwerk überwiegend aus Personen besteht. Nur ein kleiner Teil der Knoten sind Marken. 
+
+### Frauen und Männer
+Uns interessiert die Geschlechterverteilung im Netzwerk. Also färben wir die Frauen = rot ein und die Männer = blau.
+
+```{r fig.height=9, fig.width=9}
+# Wir plotten das Gesamtnetzwerk mit dem Unterschied, dass wir nach Männern und Frauen unterscheiden. Dafür färben wir die Männer (sex = 1) blau und die Frauen (sex = 2) rot ein. 
+
+sex1 <- ripke
+delete.vertices(ripke, V(ripke)[(type == 2)])
+V(sex1)[V(sex1)$sex == 1]$color <- "blue" 
+V(sex1)[V(sex1)$sex == 2]$color <- "red"
+V(sex1)[V(sex1)$sex ==99]$color <- "white" 
+
+plot(sex1,
+    layout = layout_with_kk,
+    vertex.size=3,
+    vertex.label.cex= 0.8,
+    vertex.label.dist = 0.5)
+```
+Bei der Abgrenzung zwischen sex = 1 und sex = 2 ist uns aufgefallen, dass das Verhältnis zwischen männlich und weiblich nahezu ausgeglichen ist. Diese Erkenntnis hat uns zwar verwundert, lässt sich aber mit der hohen Anzahl an Models im Netzwerk begründen. 
+
+## Teilnetzwerke
+
+### Ego-Netzwerke
+Da das Gesamtnetzwerk sehr unübersichtlich ist, erstellen wir Ego Netzwerke, um die Netzwerke der einzelnen Protagonisten besser verstehen zu können und interessante Cliquen / Cluster erkennen zu können.
+
+```{r Egonetzwerke, fig.width=16}
+# Wir definieren für die Ego-Netzwerke unserer Fotografen neue Netzwerk-Namen. Diese Ego-Netzwerke plotten wir auch direkt.
+
+tesch_ego <- make_ego_graph(ripke, order = 1, nodes = V(ripke)$name == 	"Lina Tesch", mode ="all")
+tesch_ego <- tesch_ego[[1]]
+plot(tesch_ego, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main="Ego-Netzwerk Tesch")
+
+rip_ego <- make_ego_graph(ripke, order = 1, nodes = V(ripke)$name == 	"Paul Ripke", mode ="all")
+rip_ego <- rip_ego[[1]]
+plot(rip_ego, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main="Ego-Netzwerk Rikpe")
+
+schwarz_ego <- make_ego_graph(ripke, order = 1, nodes = V(ripke)$name == 	"Chris Schwarz", mode ="all")
+schwarz_ego <- schwarz_ego[[1]]
+plot(schwarz_ego, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main="Ego-Netzwerk Schwarz")
+
+Josselin_ego <- make_ego_graph(ripke, order = 1, nodes = V(ripke)$name == 	"Andre Josselin", mode ="all")
+Josselin_ego <- Josselin_ego[[1]]
+plot(Josselin_ego, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main="Ego-Netzwerk Josselin")
+```
+
+Uns interessiert die Dichte der einzelnen Ego-Netzwerke
+
+```{r}
+# Wir lassen uns die Dichte der einzelnen Ego-Netzwerke ausgeben.
+
+edge_density(rip_ego, loops=FALSE)
+
+edge_density(Josselin_ego, loops=FALSE)
+
+edge_density(tesch_ego, loops=FALSE)
+
+edge_density(schwarz_ego, loops=FALSE)
+```
+Obwohl Josselin über viel mehr Kontakte verfügt, sind die Kontakte in Ripkes Ego-Netzwerk deutlich besser verbunden, was an der Dichte von 16,6 Prozent (Paul Ripke) und 6,4 Prozent (André Josselin) zu erkennen ist. André Josselin hat trotz der Tatsache, dass er die meisten Kontakte hat, das am schwächsten vernetzte Netzwerk.  
+
+### Das Netzwerk über die Zeit
+Da uns die Entwicklung des Netzwerks über die Jahre (2016-2019) interessiert, erstellen wir Teilnetzwerke, welche nach den Jahren sortiert sind. Hierbei sind wir das erste Mal auf das Problem gestoßen, dass das Attribut "time" nicht als numerisches Attribut erkannt wird. Daher müssen wir im entsprechenden Befehl zum Beispiel " 1" für das Jahr 2016 schreiben.  
+
+```{r Ripkezeit, fig.width=16}
+# Wir definieren einzelne Netzwerke aus den Gesamtnetzwerk für jedes Jahr. Dazu löschen wir alle Edges außer die, die mit der jeweiligen time des Jahres definiert sind und danach alle nodes, die demnach keine Verbindung mehr haben. Die vier Netzwerke plotten wir auch direkt.
+
+time1 <- delete.edges(ripke, E(ripke)[(time != " 1")])
+time1 <- delete.vertices(time1, degree(time1) == 0)
+time2 <- delete.edges(ripke, E(ripke)[(time != " 2")])
+time2 <- delete.vertices(time2, degree(time2) == 0)
+time3 <- delete.edges(ripke, E(ripke)[(time != " 3")])
+time3 <- delete.vertices(time3, degree(time3) == 0)
+time4 <- delete.edges(ripke, E(ripke)[(time != " 4")])
+time4 <- delete.vertices(time4, degree(time4) == 0)
+plot(time1, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "2016")
+plot(time2, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "2017")
+plot(time3, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "2018")
+plot(time4, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "2019", vertex.size= 5)
+```
+In der Jahresübersicht wird deutlich, dass die einzelnen Fotografen über die Jahre an Popularität gewonnen haben und die Anzahl der Knoten zugenommen hat. 
+
+```{r Dichte Ripkezeit}
+# Dichte des Netzwerks ripke über die vier Jahre
+
+edge_density(time1, loops=FALSE)
+
+edge_density(time2, loops=FALSE)
+
+edge_density(time3, loops=FALSE)
+
+edge_density(time4, loops=FALSE)
+```
+Trotz eines Zuwachses an Knoten hat die Dichte des Gesamtnetzwerks über die Jahre abgenommen. Nur 2017 war die Dichte im Gesamtnetzwerk am höchsten.
+
+### Paul Ripkes Netzwerk über die Jahre
+Da auch das Gesamtnetzwerk nach Jahren geordnet noch sehr unübersichtlich ist, erstellen wir ein nach Jahren geordnetes Ego-Netzwerk für Ripke.
+
+```{r Ego-Ripke in Jahren, fig.width=16}
+# Wir definieren einzelne Netzwerke aus rip_ego für jedes Jahr. Dazu löschen wir alle Edges außer die, die mit der jeweiligen time des Jahres definiert sind und danach alle nodes, die demnach keine Verbindung mehr haben. Die vier Netzwerke plotten wir auch direkt.
+
+rip_time1 <- delete.edges(rip_ego, E(rip_ego)[(time != " 1")])
+rip_time1 <- delete.vertices(rip_time1, degree(rip_time1) == 0)
+rip_time2 <- delete.edges(rip_ego, E(rip_ego)[(time != " 2")])
+rip_time2 <- delete.vertices(rip_time2, degree(rip_time2) == 0)
+rip_time3 <- delete.edges(rip_ego, E(rip_ego)[(time != " 3")])
+rip_time3 <- delete.vertices(rip_time3, degree(rip_time3) == 0)
+rip_time4 <- delete.edges(rip_ego, E(rip_ego)[(time != " 4")])
+rip_time4 <- delete.vertices(rip_time4, degree(rip_time4) == 0)
+plot(rip_time1, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Ripke 2016")
+plot(rip_time2, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Ripke 2017")
+plot(rip_time3, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Ripke 2018")
+plot(rip_time4, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Ripke 2019")
+```
+Ausgehend von der Erkenntnis, dass die Dichte im Gesamtnetzwerk trotz eines Zuwachses an Kontakten abgenommen hat, wollen wir uns auch die Dichte in Ripkes Ego-Netzwerk genauer ansehen. 
+
+```{r Dichte Ego-Ripke in Jahren}
+# Dichte vom Netzwerk rip_ego über die Jahre
+edge_density(rip_time1, loops=FALSE)
+
+edge_density(rip_time2, loops=FALSE)
+
+edge_density(rip_time3, loops=FALSE)
+
+edge_density(rip_time4, loops=FALSE)
+```
+
+Auch bei der Betrachtung von Ripkes Netzwerk über die Jahre wird deutlich, dass die Kontakte im Jahr 2017 am besten vernetzt waren. Deshalb schauen wir uns auch die Ego-Netzwerke der anderen Fotografen über die Jahre an. Was war im Jahr 2017 so anders und hat zur besten Vernetzung der Kontakte geführt? 
+
+###Josselins Netzwerk über die Zeit
+
+```{r Ego-Josselin in Jahren , fig.width=16}
+# Wir definieren einzelne Netzwerke aus Josselin_ego für jedes Jahr. Dazu löschen wir alle Edges außer die, die mit der jeweiligen time des Jahres definiert sind und danach alle nodes, die demnach keine Verbindung mehr haben. Die vier Netzwerke plotten wir auch direkt.
+
+Josselin_time1 <- delete.edges(Josselin_ego, E(Josselin_ego)[(time != " 1")])
+Josselin_time1 <- delete.vertices(Josselin_time1, degree(Josselin_time1) == 0)
+Josselin_time2 <- delete.edges(Josselin_ego, E(Josselin_ego)[(time != " 2")])
+Josselin_time2 <- delete.vertices(Josselin_time2, degree(Josselin_time2) == 0)
+Josselin_time3 <- delete.edges(Josselin_ego, E(Josselin_ego)[(time != " 3")])
+Josselin_time3 <- delete.vertices(Josselin_time3, degree(Josselin_time3) == 0)
+Josselin_time4 <- delete.edges(Josselin_ego, E(Josselin_ego)[(time != " 4")])
+Josselin_time4 <- delete.vertices(Josselin_time4, degree(Josselin_time4) == 0)
+plot(Josselin_time1, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Josselin 2016")
+plot(Josselin_time2, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Josselin 2017")
+plot(Josselin_time3, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Josselin 2018")
+plot(Josselin_time4, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Josselin 2019")
+```
+Für André Josselin war 2019 anscheinend ein arbeitsintensives Jahr: Im Vergleich zu den vergangenen drei Jahren kamen sehr viele neue Knoten und Verbindungen in seinem Netzwerk dazu. Ausgehend von dieser Beobachtung gehen wir davon aus, dass Josselin 2019 in seiner Branche "angekommen" ist oder besser: "angenommen" wurde und beruflich viel Erfolg hatte.
+
+
+```{r Dichte Ego-Josselin in Jahren}
+# Dichte vom Netzwerk Josselin_ego über die Jahre
+edge_density(Josselin_time1, loops=FALSE)
+
+edge_density(Josselin_time2, loops=FALSE)
+
+edge_density(Josselin_time3, loops=FALSE)
+
+edge_density(Josselin_time4, loops=FALSE)
+```
+
+Erstaunlicherweise liegt die höchste Dichte in Josselins Ego-Netzwerk mit 16,5 Prozent in den ersten beiden Jahren. Obwohl sich 2019 viel mehr Knoten im Netzwerk befinden, gibt es 2019 viel mehr Einzelverbindungen, die untereinander nicht weiter vernetzt sind. Das führt zu einer gerinen Dichte im Netzwerk.
+Das könnte daher kommen, dass Josselin 2016 mit vielen seiner Kontakten auf dem Lollapalooza-Festival in Chicago, USA war. Auch Paul Ripke war dort, weswegen auch Verbindungen zweiten Grades auftreten. Da das Netzwerk aus nur wenigen Knoten besteht, ziehen diese Verbindungen die Dichte im Netzwerk nach oben. 
+
+###Schwarz Netzwerk über die Jahre
+Beim Netzwerk von Chris Schwarz beginnen wir erst 2017 mit der Beobachtung, da er vorher nur unabhängig von Paul Ripke fotografiert hast und erst 2017 so richtig in die Öffentlichkeit getreten ist. 
+
+```{r Schwarz-Ego in Jahren , fig.width=16}
+# Wir definieren einzelne Netzwerke aus schwarz_ego für jedes Jahr. Dazu löschen wir alle Edges außer die, die mit der jeweiligen time des Jahres definiert sind und danach alle nodes, die demnach keine Verbindung mehr haben. Die vier Netzwerke plotten wir auch direkt.
+
+schwarz_time2 <- delete.edges(schwarz_ego, E(schwarz_ego)[(time != " 2")])
+schwarz_time2 <- delete.vertices(schwarz_time2, degree(schwarz_time2) == 0)
+schwarz_time3 <- delete.edges(schwarz_ego, E(schwarz_ego)[(time != " 3")])
+schwarz_time3 <- delete.vertices(schwarz_time3, degree(schwarz_time3) == 0)
+schwarz_time4 <- delete.edges(schwarz_ego, E(schwarz_ego)[(time != " 4")])
+schwarz_time4 <- delete.vertices(schwarz_time4, degree(schwarz_time4) == 0)
+
+plot(schwarz_time2, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Schwarz 2017")
+plot(schwarz_time3, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Schwarz 2018")
+plot(schwarz_time4, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Schwarz 2019")
+```
+
+2017 war Chris Schwarz als "Mini-Paul" unterwegs und übernahm die Aufträge für Paul Ripke, die dieser aufgrund seines Umzugs in die USA nicht mehr erledigen konnte. Das und ein steigender Bekanntheitsgrad in 2018 führten zu einem deutlichen Mehr an Aufträgen in 2019 - womit sich die vielen neuen Knoten im Netzwerk erklären lassen.
+
+```{r Dichte Ego-Schwarz in Jahren}
+# Dichte vom Netzwerk schwarz_ego über die Jahre
+
+edge_density(schwarz_time2, loops=FALSE)
+
+edge_density(schwarz_time3, loops=FALSE)
+
+edge_density(schwarz_time4, loops=FALSE)
+```
+
+Die höchste Dichte in den Ego-Netzwerken von Chris Schwarz ist im Jahr 2017 mit 28,6 Prozent. Wir vermuten, dass das daher kommt, dass Schwarz in diesem Jahr mit nur drei Nodes in seinem Egonetzwerk direkt verbunden ist: Paul Ripke, Anthony Molina und Nico Rosberg. Auch weist das Ego-Netzwerk Schwarz in 2017 nur sehr wenige Nodes auf.
+
+### Teschs Netzwerk über die Jahre
+
+```{r Tesch-Ego in Jahren , fig.width=16}
+# Wir definieren einzelne Netzwerke aus tesch_ego für jedes Jahr. Dazu löschen wir alle Edges außer die, die mit der jeweiligen time des Jahres definiert sind und danach alle nodes, die demnach keine Verbindung mehr haben. Die vier Netzwerke plotten wir auch direkt.
+
+tesch_time1 <- delete.edges(tesch_ego, E(tesch_ego)[(time != " 1")])
+tesch_time1 <- delete.vertices(tesch_time1, degree(tesch_time1) == 0)
+tesch_time2 <- delete.edges(tesch_ego, E(tesch_ego)[(time != " 2")])
+tesch_time2 <- delete.vertices(tesch_time2, degree(tesch_time2) == 0)
+tesch_time3 <- delete.edges(tesch_ego, E(tesch_ego)[(time != " 3")])
+tesch_time3 <- delete.vertices(tesch_time3, degree(tesch_time3) == 0)
+tesch_time4 <- delete.edges(tesch_ego, E(tesch_ego)[(time != " 4")])
+tesch_time4 <- delete.vertices(tesch_time4, degree(tesch_time4) == 0)
+plot(tesch_time1, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Tesch 2016")
+plot(tesch_time2, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Tesch 2017")
+plot(tesch_time3, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Tesch 2018")
+plot(tesch_time4, layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5, vertex.color = "light blue", main = "Tesch 2019")
+```
+
+Die Ego-Netzwerke von Lina Tesch haben sich über die Jahre am wenigstens verändert. Sie zeigt sich am unabhängigsten von Paul Ripkes Netzwerk und bleibt auch 2019 mit vielen Nodes verbunden, mit denen sie 2016 bereits verbunden war. 
+
+```{r Dichte Ego-Tesch in Jahren}
+# Dichte vom Netzwerk tesch_ego über die Jahre
+edge_density(tesch_time1, loops=FALSE)
+
+edge_density(tesch_time2, loops=FALSE)
+
+edge_density(tesch_time3, loops=FALSE)
+
+edge_density(tesch_time4, loops=FALSE)
+```
+
+Es ist wenig erstaunlich, dass auch ihre Dichte über die Jahre recht konstant bleibt. Die Schwankungen in der Dichte sind nur minimal. 
+
+### Geschäftliche Zusammenarbeiten
+Wir interessieren uns dafür, wer mit wem geschäftlich zusammengearbeitet hat. Daher filtern wir alle Edges, die nicht das Edge-Attribut relationship = 1 haben, heraus. 
+
+```{r subgraph.edges, fig.height=9, fig.width=9}
+# Wir filtern mit dem Attribut subgraph.edges alle Edges heraus, die relationship = 1 haben. So werden uns nur die geschäftlichen Zusammenarbeiten angezeigt.
+
+list.edge.attributes(ripke)
+edge.attributes(ripke)$relationship
+
+work <- subgraph.edges(ripke, E(ripke)[relationship==" 1"]) 
+work
+
+ripke
+plot(work,
+     layout = layout_nicely,
+     vertex.size=5,
+     vertex.label.cex= 1.3,
+     vertex.label.dist = 0.5,
+     vertex.color = "light blue",
+     main="Geschäftliche Zusammenarbeiten im Netzwerk Ripke")
+
+```
+
+Da das Gesamtnetzwerk "geschäftliche Zusammenarbeiten" zu unübersichtlich ist, wollen wir uns die Fotografen und ihre Zusammenarbeiten mit den von uns definierten Professions anschauen. 
+
+### Zusammenarbeit Fotografen und Marken
+Uns interessiert besonders, welche Fotografen mit welchen Marken zusammengearbeitet haben, deswegen filtern wir das Gesamtnetzwerk nach den node-Attributen profession und type. Jetzt wird uns das Netzwerk der Fotografen und Marken ausgegeben.Die Fotografen lassen wir uns in orange anzeigen und die Marken in dunkelgrün. 
+
+```{r fig.height=9, fig.width=9}
+# Löscht alle Knoten mit Profession > 1 sowie Type = 1 an. So zeigt es uns nur die Fotografen und Marken im Netzwerk an. 
+
+profession1 <-
+  delete.vertices(ripke, V(ripke)[(profession > 1) & (type == 1)])
+  V(profession1)[V(profession1)$type == 1]$color <- "orange"
+  V(profession1)[V(profession1)$profession > 1]$color <- "dark green"
+
+
+# Marken
+plot (profession1,
+      layout = layout_with_kk,
+      vertex.size=5,
+      vertex.label.cex= 1.3,
+      vertex.label.dist = 0.5,
+      main = "Zusammenarbeit Fotografen und Marken")
+```
+
+Es ist sehr interessant, zu sehen, dass Lina Tesch ein eigenes und von Ripke unabhängiges Netzwerk mit Marken hat. Diese Erkenntnis hatten wir bereits, als wir ihr Ego-Netzwerk über die Jahre betrachtet hatten. Daraus könnte man schließen, dass Lina Tesch bei ihrer Entwicklung und ihrem Erfolg unabhäninger von Paul Ripke gearbeitet hat und sie deshalb auch weniger mit Josselin und Schwarz verbunden ist.
+
+### Ripkes Zusammenarbeit mit Models
+Wir vermuten, dass sich die Zusammenarbeit von Paul Ripke mit Models über die Jahre verändert hat. Daher visualisieren wir seine Zusammenarbeit mit Models über die Jahre. Hierbei wählen wir für die Models die Farbe Pink und für die Fotografen wie gewohnt Orange.
+Wir beschränken uns darauf, die Zusammenarbeit mit den einzelnen Professions nur in Ripkes Ego-Netzwerk anzuschauen, da er der Haupt-Akteur in unserem Netzwerk ist und uns sein Werdegang am Meisten interessiert.
+
+```{r fig.height=9, fig.width=9}
+# Löscht alle Knoten mit Profession > 2. So zeigt es uns die Zusammenarbeit von Fotografen und Models an. 
+
+model1 <-
+  delete.vertices(rip_time1, V(rip_time1)[(profession > 2)])
+  V(model1)[V(model1)$profession == 1]$color <- "orange"
+  V(model1)[V(model1)$profession == 2]$color <- "pink"
+model2 <-
+  delete.vertices(rip_time2, V(rip_time2)[(profession > 2)])
+  V(model2)[V(model2)$profession == 1]$color <- "orange"
+  V(model2)[V(model2)$profession == 2]$color <- "pink"
+model3 <-
+  delete.vertices(rip_time3, V(rip_time3)[(profession > 2)])
+  V(model3)[V(model3)$profession == 1]$color <- "orange"
+  V(model3)[V(model3)$profession == 2]$color <- "pink"
+model4 <-
+  delete.vertices(rip_time4, V(rip_time4)[(profession > 2)])
+  V(model4)[V(model4)$profession == 1]$color <- "orange"
+  V(model4)[V(model4)$profession == 2]$color <- "pink"
+
+# Marken
+plot (model1,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2016 Zusammenarbeit Fotografen und Models")
+plot (model2,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2017 Zusammenarbeit Fotografen und Models")
+plot (model3,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2018 Zusammenarbeit Fotografen und Models")
+plot (model4,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2019 Zusammenarbeit Fotografen und Models")
+```
+
+Paul Ripke hat über die Jahre nur mit drei deutschen Models längerfristig zusammengearbeitet, die auch von Relevanz für unser Gesamtnetzwerk sind. Wir waren überrascht davon, da wir davon ausgegangen waren, dass er mit mehr Models gearbeitet hat. Allerdings haben wir die nicht-deutschen Models nicht in unser Netzwerk aufgenommen, weshalb diese Zusammenarbeiten auch nicht berücksichtigt werden können.
+
+### Ripkes Zusammenarbeit mit Musikern
+Auch die Zusammenarbeit mit Musikern interessiert uns. Für die Visualisierung wählen wir hier für Musiker die Farbe Grau und für Fotografen wie gewohnt Orange.
+
+```{r fig.height=9, fig.width=9}
+# Löscht alle Knoten mit Profession = 2 und > 3. So zeigt es uns die Zusammenarbeit von Fotografen und Musikern an. 
+
+musik1 <-
+  delete.vertices(rip_time1, V(rip_time1)[(profession != 1) & (profession != 3)])
+  V(musik1)[V(musik1)$profession == 1]$color <- "orange"
+  V(musik1)[V(musik1)$profession == 3]$color <- "grey"
+musik2 <-
+  delete.vertices(rip_time2, V(rip_time2)[(profession != 1) & (profession != 3)])
+  V(musik2)[V(musik2)$profession == 1]$color <- "orange"
+  V(musik2)[V(musik2)$profession == 3]$color <- "grey"
+musik3 <-
+  delete.vertices(rip_time3, V(rip_time3)[(profession != 1) & (profession != 3)])
+  V(musik3)[V(musik3)$profession == 1]$color <- "orange"
+  V(musik3)[V(musik3)$profession == 3]$color <- "grey"
+musik4 <-
+  delete.vertices(rip_time4, V(rip_time4)[(profession != 1) & (profession != 3)])
+  V(musik4)[V(musik4)$profession == 1]$color <- "orange"
+  V(musik4)[V(musik4)$profession == 3]$color <- "grey"
+  
+# Marken
+plot (musik1,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2016 Zusammenarbeit Fotografen und Musiker")
+plot (musik2,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2017 Zusammenarbeit Fotografen und Musiker")
+plot (musik3,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2018 Zusammenarbeit Fotografen und Musiker")
+plot (musik4,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2019 Zusammenarbeit Fotografen und Musiker")
+```
+
+Auch bei der Zusammenarbeit von Fotografen und Musikern gibt es keine Überraschung. Neben ein paar Konstanten kommen und gehen über die Jahre Musiker hinzu oder weg. 
+
+### Ripkes Zusammenarbeit mit Sportlern
+Da wir davon ausgehen, dass die Zusammenarbeit mit Sportlern einen großen Einfluss auf Ripkes Karriere hatte, visualisieren wir auch diese. Für die Visualisierung wählen wir hier für Sportler die Farbe Lila und für Fotografen wie gewohnt Orange.
+
+```{r fig.height=9, fig.width=9}
+# Löscht alle Knoten außer Profession = 1 und = 4. So zeigt es uns die Zusammenarbeit von Fotografen und Sportlern an. 
+
+sportler1 <-
+  delete.vertices(rip_time1, V(rip_time1)[(profession != 1) & (profession != 4)])
+  V(sportler1)[V(sportler1)$profession == 1]$color <- "orange"
+  V(sportler1)[V(sportler1)$profession == 4]$color <- "purple"
+sportler2 <-
+  delete.vertices(rip_time2, V(rip_time2)[(profession != 1) & (profession != 4)])
+  V(sportler2)[V(sportler2)$profession == 1]$color <- "orange"
+  V(sportler2)[V(sportler2)$profession == 4]$color <- "purple"
+sportler3 <-
+  delete.vertices(rip_time3, V(rip_time3)[(profession != 1) & (profession != 4)])
+  V(sportler3)[V(sportler3)$profession == 1]$color <- "orange"
+  V(sportler3)[V(sportler3)$profession == 4]$color <- "purple"
+sportler4 <-
+  delete.vertices(rip_time4, V(rip_time4)[(profession != 1) & (profession != 4)])
+  V(sportler4)[V(sportler4)$profession == 1]$color <- "orange"
+  V(sportler4)[V(sportler4)$profession == 4]$color <- "purple"
+sportler4 <- delete.vertices(sportler4, degree(sportler4) == 0)
+
+  
+# Marken
+plot (sportler1,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2016 Zusammenarbeit Fotografen und Sportler")
+plot (sportler2,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2017 Zusammenarbeit Fotografen und Sportler")
+plot (sportler3,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2018 Zusammenarbeit Fotografen und Sportler")
+plot (sportler4,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2019 Zusammenarbeit Fotografen und Sportler")
+```
+
+2018 hatte das Ripke Netzwerk den "Sportler-Höhepunkt", da er zu diesem Zeitpunkt mit sechs Sportlern zusammengearbeitet hat. 2014 war die Fußball Weltmeisterschaft, bei der er als Fotograf für die deutsche Nationalmannschaft tätig war. Das Jahr 2014 hatte demnach einen großen Einfluss auf seine Karriere, welcher durch die Zusammenarbeit mit den Fußballern zustande kam. Da wir unsere Analyse erst im Jahr 2016 beginnen, wird dieses Event nicht berücksichtigt.
+
+### Ripkes Zusammenarbeit mit Medienschaffenden
+Paul Ripke hat mit Medienschaffenden wie zum Beispiel Joko Winterscheidt zusammengearbeitet. Da wir vermuten, dass ihn diese Zusammenarbeit in seiner Karriere weiter gebracht hat, visualisieren wir auch dieses Teilnetzwerk. Für die Visualisierung wählen wir hier für Medien die Farbe Hellgrün und für Fotografen wie gewohnt Orange.
+
+```{r fig.height=9, fig.width=9}
+# Löscht alle Knoten außer Profession = 1 und = 5. So zeigt es uns die Zusammenarbeit von Fotografen und Medienschaffenden an. 
+
+medien1 <-
+  delete.vertices(rip_time1, V(rip_time1)[(profession != 1) & (profession != 5)])
+  V(medien1)[V(medien1)$profession == 1]$color <- "orange"
+  V(medien1)[V(medien1)$profession == 5]$color <- "light green"
+medien2 <-
+  delete.vertices(rip_time2, V(rip_time2)[(profession != 1) & (profession != 5)])
+  V(medien2)[V(medien2)$profession == 1]$color <- "orange"
+  V(medien2)[V(medien2)$profession == 5]$color <- "light green"
+medien3 <-
+  delete.vertices(rip_time3, V(rip_time3)[(profession != 1) & (profession != 5)])
+  V(medien3)[V(medien3)$profession == 1]$color <- "orange"
+  V(medien3)[V(medien3)$profession == 5]$color <- "light green"
+medien4 <-
+  delete.vertices(rip_time4, V(rip_time4)[(profession != 1) & (profession != 5)])
+  delete.vertices(medien4, degree(medien4) == 0)
+  V(medien4)[V(medien4)$profession == 1]$color <- "orange"
+  V(medien4)[V(medien4)$profession == 5]$color <- "light green"
+medien4 <- delete.vertices(medien4, degree(medien4) == 0)
+  
+# Marken
+plot (medien1,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2016 Zusammenarbeit Fotografen und Medienschaffende")
+plot (medien2,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2017 Zusammenarbeit Fotografen und Medienschaffende")
+plot (medien3,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2018 Zusammenarbeit Fotografen und Medienschaffende")
+plot (medien4,
+      layout = layout_with_kk, vertex.size=5, vertex.label.cex= 2, vertex.label.dist = 0.5,
+      main = "Paul Ripke 2019 Zusammenarbeit Fotografen und Medienschaffende")
+```
+
+Genau wie bei den anderen Teilnetzwerken ist auch dieses nicht besonders spektakulär, da sich die Zusammenarbeiten nicht großartig verändern. 
+
+### Freundesnetzwerke
+Uns ist aufgefallen, dass wir aus dem relationship-Attribut nur sehr schwer Netzwerke über die Freundschaften zwischen den einzelnen Akteuren bilden können. Denn Freundschaften gehen darüber hinaus, ob Privat oder Geschäftlich zusammen gearbeitet wurde. Akteure, die sowohl privat als auch geschäftlich mit zb. Paul Ripke gearbeitet haben, erscheinen nur im Netzwerk "Privat + Geschäftlich" und teilweise nicht im Netzwerk "Privat".
+Daher haben wir beschlossen, nachträglich noch das Edge-Attribut "Friendship" einzuführen. So können wir das Freundes-Netzwerk von Paul Ripke visualisieren. 
+Auch hier interessiert uns nur das Netzwerk von Paul Ripke, da er unser Hauptakteur ist.
+
+```{r}
+# Wir filtern alle Freundesbeziehungen (friendship = 3) aus dem Netzwerk rip_ego heraus. So wird uns Paul Ripkes Freundesnetzwerk angezeigt.
+
+list.edge.attributes(rip_ego)
+edge.attributes(rip_ego)$friendship
+
+work <- subgraph.edges(rip_ego, E(rip_ego)[friendship == " 3"]) 
+work
+
+rip_ego
+plot(work,
+     main="Paul Ripke Freunde",
+     vertex.size=15,
+     vertex.label.cex= 1,
+     vertex.label.dist = 0.5,
+     layout = layout_with_kk,)
+```
+
+Das Attribut "friendship" haben wir nach eigenem Ermessen für die einzelnen Edges definiert. Das Wissen hierfür ziehen wir aus den Informationen, die er im Podcast sowie in Interviews genannt hat. Mit allen Freunden hat Paul Ripke in mindestens zwei der vier Jahre unserer Datenerhebung zusammengearbeitet beziehungsweise er hatte privat mit ihnen zu tun. 
+
+## Netzwerkmaße
+### Zentralitätsmaße
+
+Wir lassen uns die Degree-Werte der einzelnen Knoten als normalisierte Werte ausgeben, da sie sich nur so auf einer Skala befinden und miteinander vergleichbar sind. 
+
+```{r}
+# Liefert die Degree-Werte der Knoten im Netzwerk Ripke
+degree(ripke, normalized = T)
+```
+
+```{r}
+#Liefert die Anzahl der Kanten, die durch die Knoten gehen.
+which.max(degree(ripke, normalized = T))
+```
+Der Knoten durch den die maximale Anzahl an Kanten gehen, ist Paul Ripke. Für uns macht das auch Sinn, da er das Zentrum des Netzwerks darstellt und die anderen Fotografen sozusagen in der Öffentlichkeit bekannter gemacht hat. 
+
+```{r}
+# Liefert die Betweenness-Werte der Knoten im Netzwerk Ripke
+betweenness(ripke, normalized = T)
+```
+
+```{r}
+# Liefert den maximalen Betweenness Wert: Wie wahrscheinlich ist es, dass dieser Knoten die Verbindung zu anderen Knoten im Netzwerk herstellen kann? Brücke bzw. Verbindung
+which.max(betweenness(ripke))
+```
+Paul Ripke besitzt die größte Betweenness im Netzwerk. Das heißt bei ihm ist es am wahrscheinlichsten, dass er Verbindungen zu anderen Knoten in seinem Netzwerk herstellen kann. 
+
+Paul Ripke sticht bei allen Zentralitätsmaßen heraus, was in unseren Augen Sinn ergibt, da er der Hauptakteur des Netzwerks ist.
+
+# Zusammenfassung und Fazit
+Was war im Jahr 2017 so anders und hat zur besten Vernetzung der Kontakte geführt? 2016 ist Ripke nach Amerika gezogen und deswegen glauben wir, dass er 2017 noch mehr Kontakte/Aufträge zu/mit Menschen aus Deutschland hatte und das dann abgenommen hat. In den letzten Jahren hat er sich besonders auf die Zusammenarbeit mit der Formel1 konzentriert. Das erklärt auch, warum sich die Akteure in seinen Netzwerken nicht so sehr verändern. Stefanie Giesinger, Lena Gercke und Caro Daur haben in allen vier Jahren mit Paul Ripke zusammengearbeitet. Sie tauchen auch in seinem Freundschaftsnetzwerk auf. Auffällig ist, dass die drei Models auch mit fast allen anderen Fotografen verbunden sind. Somit können wir daraus schließen, dass sich ein Netzwerk von enger Zusammenarbeit zwischen befreundeten Akteuren gebildet hat.
+Unsere erste Ausgangshypothese, dass Paul Ripke die meisten Verbindungen im Netzwerk hat, hat sich bestätigt. Somit wird er auch seiner Schlüsselrolle in den Karrieren der anderen gerecht. 
+Unsere zweite Ausgangshypothese, dass Paul Ripke hauptsächlich mit Leuten zusammenarbeitet, die ebenfalls erfolgreich sind, hat sich bestätigt. Die Namen in Paul Ripkes Netzwerk sind alle (ausgenommen der anderen Fotografen und seiner Frau) zumindest in Deutschland sehr bekannt (manche auch über Deutschland hinaus). Daraus schließen wir, dass (durch ihre Arbeitsmoral) erfolgreiche Menschen sowie extrovertierte Persönlichkeiten sich in ihrer Zusammenarbeit anziehen und auch langfristig miteinander arbeiten.
+Rückblickend denken wir, dass es interessanter gewesen wäre, wenn wir mit der Datenerhebung 2012 oder 2014 angefangen hätten, da wir vermuten, dann mehr Aussagen darüber treffen zu können, wie Paul Ripke zu dem Fotografen geworden ist, der er heute ist.
+
+# Literatur und Anhang  
+
+__a) verwendete Literatur__  
+__b) Codebuch (https://raw.githubusercontent.com/dianamuehlberger/ripke/master/codebuck_ripke.csv)__  
+__c) verwendete Datenquellen (https://raw.githubusercontent.com/dianamuehlberger/ripke/master/edgelist.csv)(https://github.com/dianamuehlberger/ripke/blob/master/nodelist.csv)__  
+__d) komplettes annotiertes RNotebook ()__  
+__e) TeilnehmerInnen des Projekts und Arbeitsaufwand im Projekt: Friederike Kunz, Diana Mühlberger, Angelina Neuwirth, Franziska Schmock, Leah Striegel__  
+
