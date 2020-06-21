@@ -1,0 +1,21 @@
+CODEBUCH,
+,
+,
+Wert,Kommentar
+edgelist,Grundregel: Die Edgelist darf pro Spalte immer nur einen Wert enthalten. Bis auf die ID idealerweise numerisch codiert (als Zahl).
+from,definiert den Sender in unserem Netzwerk. Entspricht ID in der Nodelist.
+to ,definiert den Empfänger in unserem Netzwerk. Entspricht ID in der Nodelist.
+weight,"Ausprägung der Kantenstärke (Beziehungsstärke), definiert nach vorgegeben Skalen (1 = einmaliger Kontakt, 2 = 2-10 Kontake, 3 = 10-30 Kontakte, 4 = mehr als 30 Kontakte"
+relationship,"definiert die Art der Beziehung bei multiplexen Netzwerken mit verschiedenen Beziehungsarten (1 = geschäftlich, 2 = privat, 12 = geschäftlich und privat)"
+time,"definiert einen Zeitraum, in dem die Beziehung zwischen zwei Knoten stattgefunden hat oder beobachtet wurde (1 = 2016, 2 = 2017, 3 = 2018, 4= 2019)"
+friendship,"definiert, ob eine Freundschaft zwischen den Personen besteht (3 = befreundet, 99 = nicht bekannt)"
+,
+nodelist,Grundregel: die IDs der Nodelist müssen mit den IDs der Edgelist komplett übereinstimmen. Ausprägungen der Attribute in der Regel numerisch definieren.
+id,"eindeutige Identifikation jedes einzelnen Knotens (vertex), der erfasst wird.  "
+name,Name oder Bezeichnung des Knotens. 
+sex,"dichotome Ausprägung: male oder female (1 = male, 2 = female)"
+profession,"definiert als Berufsbild des Akteurs (1 = fotograf*in, 2 = model, 3 = künstler*in/musiker*in, 4 = sportler*in, 5 = medienschaffende*r)"
+type,"definiert die verschiedenen Akteure des Two-Mode-Netzwerks (1 = person, 2 = marke)"
+,
+,
+99,definiert fehlende Werte
