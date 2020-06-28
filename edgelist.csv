@@ -221,5 +221,8 @@ schwarz,nr,1,1,2,99
 schwarz,te,1,1,4,99
 schwarz,mac,1,1,4,99
 schwarz,ig,1,1,3,99
-schwarz,ripke,2,1,2,3
+schwarz,ripke,4,1,2,3
+schwarz,ripke,4,1,1,3
+schwarz,ripke,3,2,3,3
+schwarz,ripke,2,2,4,3
 schwarz,am,3,1,4,99
